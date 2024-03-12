@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiServiceService } from '../../services/api-service.service';
+import { ApiService } from '../../services/api-service.service';
 
 @Component({
   selector: 'app-map',
@@ -7,15 +7,18 @@ import { ApiServiceService } from '../../services/api-service.service';
   styleUrl: './map.component.css',
 })
 export class MapComponent {
-  constructor(private apiService: ApiServiceService) {}
+  countryData: any = {};
+
+  constructor(private apiService: ApiService) {}
 
   handlePathClick(event: MouseEvent) {
     const clickedPathId = (event.target as HTMLElement).getAttribute('id');
     console.log('Path Clicked:', clickedPathId);
     if (clickedPathId) {
-      this.apiService
-        .getApiData(clickedPathId)
-        .subscribe((data) => console.log(data));
+      this.apiService.getApiData(clickedPathId).subscribe((data) => {
+        this.countryData = data;
+        console.log(data);
+      });
     } else {
       console.log('error');
     }

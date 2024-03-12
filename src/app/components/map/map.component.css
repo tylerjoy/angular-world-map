@@ -1,4 +1,12 @@
 .map-image {
   width: 800px;
   height: 600px;
+  display: inline-block;
+  display: flex;
+}
+
+.info-div {
+  display: inline-block;
+  margin: auto;
+  margin-top: 300px;
 }

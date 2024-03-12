@@ -11,9 +11,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class ApiServiceService {
-  // private apiUrl = 'https://api.worldbank.org/V2/country/${clickedPathId}?format=json'
-
+export class ApiService {
   private apiUrl = 'https://api.worldbank.org/V2/country';
 
   constructor(private http: HttpClient) {}
